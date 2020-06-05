@@ -10,10 +10,20 @@ connect mysql to docker
 
 
 Q
-docker file should be several for mysql..apache..?
 Can I use python on php project..?
 how to use json web token
 COCappProject (origin)
 -cakephp (origin)
 -docker
 cannot push
+
+
+
+6/5
+how to write docker-composeyml 
+you got to explain 
+
+brwalstats -> tool
+ JWT ->  official manual.
+ how to
+curl -X GET --header 'Accept: application/json' --header "authorization: Bearer <API token>" 'https://api.brawlstars.com/v1/brawlers/0'
