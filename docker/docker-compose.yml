@@ -1,0 +1,54 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+
+version: '3.4'
+
+services:
+  cocappproject:
+    image: cocappproject
+    build: .
+    ports:
+      - 3000
+
+cocappproject-mailhog:
+  image: phpdockerio/mailhog:latest
+  container_name: cocappproject-mailhog
+  ports:
+    - "8125:8025"
+
+cocappproject-mysql:
+  image: mysql:5.7
+  container_name: cocappproject-mysql
+  volumes:
+      - ../mysql:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+  ports:
+    - "8106:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    - MYSQL_DATABASE=${MYSQL_DATABASE}
+    - MYSQL_USER=${MYSQL_USER}
+    - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+cocappproject-nginx:
+  image: phpdockerio/nginx:latest
+  container_name: cocappproject-nginx
+  volumes:
+      - ../cakephp:/var/www/myapp
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  ports:
+   - "8180:80"
+  links:
+   - cocappproject-php-fpm
+
+cocappproject-php-fpm:
+  build: .
+  dockerfile: php-fpm/Dockerfile
+  container_name: cocappproject-php-fpm
+  volumes:
+    - ../cakephp:/var/www/cocappproject
+    - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+  links:
+    - cocappproject-mailhog
+    - cocappproject-mysql

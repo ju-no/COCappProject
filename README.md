@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CakePHP Application Skeleton
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
@@ -51,3 +52,34 @@ Other environment agnostic settings can be changed in `config/app.php`.
 The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
+=======
+# COCappProject
+
+TODO
+check docker file &
+docker-compose.yml
+DB setting on cakePHP
+
+set docker apache web server
+connect mysql to docker
+
+
+Q
+Can I use python on php project..?
+how to use json web token
+COCappProject (origin)
+-cakephp (origin)
+-docker
+cannot push
+
+
+
+6/5
+how to write docker-composeyml 
+you got to explain 
+
+brwalstats -> tool
+ JWT ->  official manual.
+ how to
+curl -X GET --header 'Accept: application/json' --header "authorization: Bearer <API token>" 'https://api.brawlstars.com/v1/brawlers/0'
+>>>>>>> 2741116bf3d08d11f841784e5d59fb4ffe9d9b7d
